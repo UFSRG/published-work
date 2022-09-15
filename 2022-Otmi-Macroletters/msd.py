@@ -1,11 +1,5 @@
-#!/usr/bin/python
- 
-# Script:  msdions.py
-# Purpose: calculate mean sq displacement of various types
-# Syntax:  msdions.py < filename 
-# Example: msdions.py < test.dump (dump file with scaled coordinates)
-# Author:  Lisa Hall from Mark's g(r) code
-
+#    python script to calculate mean squared displacement
+#    Author:  Lisa Hall from Mark's g(r) code
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
@@ -15,9 +9,6 @@
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 
- 
-# derived from fortran code
-# -------------------------------------------------------
 
 import sys,string
 from numpy import *
