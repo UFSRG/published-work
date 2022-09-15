@@ -1,4 +1,5 @@
-#    **calculate glass transition using quenching protocol**
+#    ** LAMMPS script to calculate glass transition using quenching protocol**
+#    Author: Mohammed Al Otmi 
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
@@ -8,10 +9,7 @@
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 
-# Author: Mohammed Al Otmi 
-
 #General
-
 units         real
 atom_style    full
 dimension     3
