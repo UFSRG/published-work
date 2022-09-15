@@ -1,7 +1,6 @@
-#!/usr/bin/env python
 #    Bond vector autocorrelation 
 #    Author : Janani Sampath
-#.   Edited by: Mohammed Al Otmi
+#    Edited by: Mohammed Al Otmi
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
