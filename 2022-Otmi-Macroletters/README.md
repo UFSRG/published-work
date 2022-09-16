@@ -1,6 +1,6 @@
 
-**Effect of Local Chain Dynamics on the Structure of Free Volume Elements in Glassy Polymer Membranes from All-Atom Molecular Dynamics Simulations![image](https://user-images.githubusercontent.com/89715432/190667653-0d974a11-b94c-4962-aca9-de89a377ffc9.png)
-**
+(https://user-images.githubusercontent.com/89715432/190667653-0d974a11-b94c-4962-aca9-de89a377ffc9.png)
+
 
 * **Tg.in** LAMMPS script to calculate glass transition temperature.
 * **prod.in** LAMMPS script to perform the production run in either NVT or NPT.
