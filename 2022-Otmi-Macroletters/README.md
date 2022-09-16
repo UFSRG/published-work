@@ -6,4 +6,4 @@
 * **ACF.py** python script to calculate the bond vector autocorrelation function.
 * **Tg.ipynb** python script to calculate the glass transition from **Tg.in** output.
 * **msd.py** python script to calculate the mean squared displacement
-* **PMP.lmps**, **PS.lmps**, **TRP.lmps** are the three equilibrated polymer structures.
+* **PMP.lmps**, **PS.lmps**, **TRP.lmps** the three equilibrated polymer structures (polymethylpentene, polystyrene, and HAB-6FDA TR).
