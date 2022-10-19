@@ -40,7 +40,7 @@ run_style       verlet
 
 
 
-#first heat system from 300 to 400
+#first heat system from 300 to 500
 fix 1 all npt temp 300 500 100 iso 1 1 100
 dump 1 all custom 10000 Tg.lammpstrj id type xu yu zu vx vy vz ix iy iz
 thermo_style custom step vol density temp press etotal
