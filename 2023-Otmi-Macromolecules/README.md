@@ -1,2 +1,1 @@
-README 
-MACROMOLECULES
+Structure, Dynamics and Hydrogen Transport in Amorphous Polymers: An Analysis of the Interplay Between Free Volume Element Distribution and Local Segmental Dynamics from Molecular Dynamics Simulations
