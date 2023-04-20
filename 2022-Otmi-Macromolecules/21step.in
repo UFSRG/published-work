@@ -1,0 +1,142 @@
+#21step.in
+#General
+units         real
+atom_style    full
+dimension     3
+boundary      p p p
+newton        on
+# Styles
+pair_style      lj/cut/coul/long 15.0 10.0
+pair_modify     shift no 
+kspace_style    pppm 1.0e-4
+bond_style       harmonic
+angle_style      harmonic
+dihedral_style   opls
+improper_style   cvff
+special_bonds lj/coul 0.0 0.0 0.5 
+# System definition
+read_data   final.lmps
+# Settings
+dielectric      1.0
+neighbor        2.0 bin
+neigh_modify one 5000
+timestep        1.0
+run_style       verlet
+# Output
+dump 1 all custom 5000 compress.lammpstrj id mol type id mol type q xs ys zs ix iy iz
+thermo_style custom step vol temp press density etotal evdwl ecoul ebond eangle edihed
+thermo 1000
+restart 100000 file.restart
+#1
+fix 1 all nvt temp 600 600 100
+velocity all create 600 58447419
+run 100000
+unfix 1
+# 2
+fix 1 all nvt temp 300 300 100
+velocity all scale 300
+run 50000
+unfix 1
+# 3 0.02*Pmax
+fix 1 all npt temp 300 300 100 iso 1000 1000 100
+velocity all scale 300
+run 50000
+unfix 1
+# 4
+fix 1 all nvt temp 600 600 100
+velocity all scale 600
+run 50000
+unfix 1
+# 5
+fix 1 all nvt temp 300 300 100
+velocity all scale 300
+run 100000
+unfix 1
+# 6 0.6*Pmax
+fix 1 all npt temp 300 300 100 iso 30000 30000 100
+velocity all scale 300
+run 50000
+unfix 1
+# 7
+fix 1 all nvt temp 600 600 100
+velocity all scale 600
+run 50000
+unfix 1
+# 8
+fix 1 all nvt temp 300 300 100
+velocity all scale 300
+run 100000
+unfix 1
+# 9 Pmax=30000
+fix 1 all npt temp 300 300 100 iso 50000 50000 100
+velocity all scale 300
+run 50000
+unfix 1
+# 10
+fix 1 all nvt temp 600 600 100
+velocity all scale 600
+run 10000
+unfix 1
+# 11
+fix 1 all nvt temp 300 300 100
+velocity all scale 300
+run 10000
+unfix 1
+# 12 0.5*Pmax
+fix 1 all npt temp 300 300 100 iso 25000 25000 100
+velocity all scale 300
+run 10000
+unfix 1
+# 13
+fix 1 all nvt temp 600 600 100
+velocity all scale 600
+run 10000
+unfix 1
+# 14
+fix 1 all nvt temp 300 300 100
+velocity all scale 300
+run 10000
+unfix 1
+# 15 0.1*Pmax
+fix 1 all npt temp 300 300 100 iso 5000 5000 100
+velocity all scale 300
+run 10000
+unfix 1
+# 16
+fix 1 all nvt temp 600 600 100
+velocity all scale 600
+run 10000
+unfix 1
+# 17
+fix 1 all nvt temp 300 300 100
+velocity all scale 300
+run 10000
+unfix 1
+# 18 0.01*Pmax
+fix 1 all npt temp 300 300 100 iso 500 500 100
+velocity all scale 300
+run 10000
+unfix 1
+# 19
+fix 1 all nvt temp 600 600 100
+velocity all scale 600
+run 10000
+unfix 1
+# 20
+fix 1 all nvt temp 300 300 100
+velocity all scale 300
+run 10000
+unfix 1
+# 21
+fix 1 all npt temp 300 300 100 iso 1 1 100
+velocity all scale 300
+run 800000
+
+#3M equil
+fix 1 all npt temp 300 300 100 iso 1 1 100
+run 3000000
+
+
+write_data  equil.lmps
+
+
