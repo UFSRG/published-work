@@ -16,7 +16,7 @@ dihedral_style opls
 special_bonds lj/coul 0.0 0.0 0.5 
 
 # System definition
-read_data final.lmps
+read_data equilibrated_system.lmps
 
 # Settings
 dielectric 1.0
@@ -29,112 +29,6 @@ run_style verlet
 dump 1 all custom 1560000 compress.lammpstrj id xu yu zu vx vy vz ix iy iz
 thermo_style custom step vol temp press etotal evdwl ecoul ebond eangle edihed eimp
 thermo 1000
-# 1
-fix 1 all nvt temp 700 700 100
-velocity all create 700 58447419
-run 50000
-unfix 1
-# 2
-fix 1 all nvt temp 300 300 100
-velocity all scale 300
-run 50000
-unfix 1
-# 3 0.02*Pmax
-fix 1 all npt temp 300 300 100 iso 100 100 100
-velocity all scale 300
-run 50000
-unfix 1
-# 4
-fix 1 all nvt temp 700 700 100
-velocity all scale 700
-run 50000
-unfix 1
-# 5
-fix 1 all nvt temp 300 300 100
-velocity all scale 300
-run 100000
-unfix 1
-# 6 0.6*Pmax
-fix 1 all npt temp 300 300 100 iso 3000 3000 100
-velocity all scale 300
-run 50000
-unfix 1
-# 7
-fix 1 all nvt temp 700 700 100
-velocity all scale 700
-run 50000
-unfix 1
-# 8
-fix 1 all nvt temp 300 300 100
-velocity all scale 300
-run 100000
-unfix 1
-# 9 Pmax=50000
-fix 1 all npt temp 300 300 100 iso 5000 5000 100
-velocity all scale 300
-run 50000
-unfix 1
-# 10
-fix 1 all nvt temp 700 700 100
-velocity all scale 700
-run 50000
-unfix 1
-# 11
-fix 1 all nvt temp 300 300 100
-velocity all scale 300
-run 100000
-unfix 1
-# 12 0.5*Pmax
-fix 1 all npt temp 300 300 100 iso 2500 2500 100
-velocity all scale 300
-run 5000
-unfix 1
-# 13
-fix 1 all nvt temp 700 700 100
-velocity all scale 700
-run 5000
-unfix 1
-# 14
-fix 1 all nvt temp 300 300 100
-velocity all scale 300
-run 10000
-unfix 1
-# 15 0.1*Pmax
-fix 1 all npt temp 300 300 100 iso 500 500 100
-velocity all scale 300
-run 5000
-unfix 1
-# 16
-fix 1 all nvt temp 700 700 100
-velocity all scale 700
-run 5000
-unfix 1
-# 17
-fix 1 all nvt temp 300 300 100
-velocity all scale 300
-run 10000
-unfix 1
-# 18 0.01*Pmax
-fix 1 all npt temp 300 300 100 iso 50 50 100
-velocity all scale 300
-run 5000
-unfix 1
-# 19
-fix 1 all nvt temp 700 700 100
-velocity all scale 700
-run 5000
-unfix 1
-# 20
-fix 1 all nvt temp 300 300 100
-velocity all scale 300
-run 10000
-unfix 1
-# 21 Pfinal=1 bar
-fix 1 all npt temp 300 300 100 iso 1 1 100
-velocity all scale 300
-run 800000
-write_data  after_21step.in
-unfix 1
 #output
 log log_Tg.lammps
 thermo_style custom step vol density temp press etotal
