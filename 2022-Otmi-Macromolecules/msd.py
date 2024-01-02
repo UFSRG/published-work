@@ -4,9 +4,7 @@
 # Purpose: calculate mean sq displacement of various types
 # Syntax:  msdions.py < filename 
 # Example: msdions.py < test.dump (dump file with scaled coordinates)
-# Author:  Lisa Hall from Mark's g(r) code
- 
-# derived from fortran code
+
 # -------------------------------------------------------
 
 import sys,string
