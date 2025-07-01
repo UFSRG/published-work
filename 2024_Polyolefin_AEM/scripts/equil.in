@@ -1,0 +1,127 @@
+# General
+units real
+atom_style full
+dimension 3
+newton on
+boundary p p p
+# Styles
+pair_style lj/cut/coul/long 12.0
+pair_modify mix arithmetic
+kspace_style ewald 1.0e-4
+bond_style harmonic
+angle_style harmonic
+dihedral_style fourier
+improper_style none
+special_bonds amber
+# System definition
+read_data ../model02_460mer_x4_18wat.lmps 
+# Settings
+dielectric 1.0
+neighbor 2.0 bin
+neigh_modify delay 0 every 1 check yes
+timestep 1.0
+run_style verlet
+# Output
+dump 1 all custom 10000 compress.lammpstrj id xu yu zu vx vy vz ix iy iz
+thermo_style custom step vol density temp press etotal evdwl ecoul ebond eangle edihed eimp
+thermo 1000
+#Emin
+min_style        sd
+minimize         1.0e-4 1.0e-4 1000 1000000
+min_style        cg
+min_modify       line quadratic
+minimize         1.0e-5 1.0e-5 1000 1000000
+#
+fix 1 all npt temp 300 300 100 iso 100 100 100
+run 50000
+unfix 1
+fix 1 all npt temp 300 300 100 iso 1 1 100
+run 50000
+write_data    equil.lmps
+unfix 1
+#
+kspace_style pppm 1.0e-4
+fix 1 all nvt temp 600 600 100
+run 200000
+unfix 1
+# 2
+fix 1 all nvt temp 300 300 100
+run 200000
+unfix 1
+# 3 0.02*Pmax
+fix 1 all npt temp 300 300 100 iso 1000 1000 100
+run 200000
+unfix 1
+# 4
+fix 1 all nvt temp 600 600 100
+run 200000
+unfix 1
+# 5
+fix 1 all nvt temp 300 300 100
+run 400000
+unfix 1
+# 6 0.6*Pmax
+fix 1 all npt temp 300 300 100 iso 30000 30000 100
+run 200000
+unfix 1
+# 7
+fix 1 all nvt temp 600 600 100
+run 200000
+unfix 1
+# 8
+fix 1 all nvt temp 300 300 100
+run 400000
+unfix 1
+# 9 Pmax=50000
+fix 1 all npt temp 300 300 100 iso 50000 50000 100
+run 200000
+unfix 1
+# 10
+fix 1 all nvt temp 600 600 100
+run 200000
+unfix 1
+# 11
+fix 1 all nvt temp 300 300 100
+run 400000
+unfix 1
+# 12 0.5*Pmax
+fix 1 all npt temp 300 300 100 iso 25000 25000 100
+run 20000
+unfix 1
+# 13
+fix 1 all nvt temp 600 600 100
+run 20000
+unfix 1
+# 14
+fix 1 all nvt temp 300 300 100
+run 40000
+unfix 1
+# 15 0.1*Pmax
+fix 1 all npt temp 300 300 100 iso 5000 5000 100
+velocity all scale 300
+run 20000
+unfix 1
+# 16
+fix 1 all nvt temp 600 600 100
+run 20000
+unfix 1
+# 17
+fix 1 all nvt temp 300 300 100
+run 40000
+unfix 1
+# 18 0.01*Pmax
+fix 1 all npt temp 300 300 100 iso 500 500 100
+run 20000
+unfix 1
+# 19
+fix 1 all nvt temp 600 600 100
+run 20000
+unfix 1
+# 20
+fix 1 all nvt temp 300 300 100
+run 40000
+unfix 1
+# 21 Pfinal=1 bar
+fix 1 all npt temp 300 300 100 iso 1 1 100
+run 1000000
+write_data  after_21step.lmps

@@ -1,0 +1,43 @@
+# General
+units real
+atom_style full
+dimension 3
+newton on
+boundary p p p
+
+# Styles
+pair_style lj/cut/coul/long 12.0
+pair_modify mix arithmetic
+kspace_style pppm 1.0e-4
+bond_style harmonic
+angle_style harmonic
+dihedral_style fourier
+improper_style none
+special_bonds amber
+
+# System definition
+read_data ../equil/after_21step.lmps
+
+# Settings
+dielectric 1.0
+neighbor 2.0 bin
+neigh_modify delay 0 every 1 check yes
+timestep 1.0
+run_style verlet
+
+fix 1 all nvt temp 300 300 100
+run 1000000
+
+# Output
+variable        f file python.txt
+variable        s equal next(f)
+dump 1 all custom 10000 prod_linear.lammpstrj id mol type q xs ys zs ix iy iz
+dump 2 all custom 1000 prod_log.lammpstrj id mol type q xs ys zs ix iy iz
+dump_modify     2 every v_s
+dump_modify     2 append yes
+thermo_style custom step vol temp press density
+thermo 100
+restart 1048576 file.restart
+run 20000000
+write_data  20ns_equil.lmps
+
