@@ -24,7 +24,7 @@ This repository contains molecular models and input files associated with the pu
 
 If you use these files or models in your work, please cite:
 
-> Mohammed Al Otmi, et al., *Science*, 2025, [https://www.science.org/doi/full/10.1126/science.adp2619](https://www.science.org/doi/full/10.1126/science.adp2619)
+> Yi Ren, et al., *Science*, 2025, [https://www.science.org/doi/full/10.1126/science.adp2619](https://www.science.org/doi/full/10.1126/science.adp2619)
 
 ---
 
