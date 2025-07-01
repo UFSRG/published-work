@@ -13,10 +13,10 @@ This repository contains molecular models, simulation input files, and analysis 
 ## 📂 Folder Structure
 
 - **PE13/**  
-  Contains molecular models and simulation files for the PE13 membrane system.
+  Contains simulation files for the PE13 membrane system.
 
 - **Scripts/**  
-  Contains LAMMPS input scripts.
+  Contains LAMMPS input and analysis scripts.
 
 ---
 
