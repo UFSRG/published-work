@@ -1,0 +1,63 @@
+;
+;       GROMACS
+;       Input for NPT
+;
+;
+;define                 =  -DDISRES
+integrator              =  md
+nsteps                  =  500000
+dt                      =  0.002
+; Removing CM Translation and Rotation
+comm_mode               =  Linear
+nstcomm                 =  1000
+;
+; Output Control
+nstlog                  = 1000
+nstenergy               = 1000
+nstxout                 = 0
+nstvout                 = 0
+nstxout-compressed      = 1000
+nstfout                 = 0
+; Neighbour Searching
+continuation            = yes
+cutoff-scheme           = Verlet
+nstlist                 = 15
+ns_type                 = grid
+pbc                     = xyz
+rlist                   = 1.2
+;
+; Electrostatic
+coulombtype             = PME
+rcoulomb                = 1.2
+fourierspacing          = 0.15
+pme-order               = 4
+ewald-rtol              = 1e-5
+periodic_molecules      = yes
+;
+; VdW
+;vdw-type               = shift
+rvdw                    = 1.2
+vdw-modifier            = force-switch ; CHARMM specific
+rvdw-switch             = 1.0
+DispCorr                = no ; account for cut-off vdW scheme
+;
+; Constraints
+constraints             = h-bonds
+constraint-algorithm    = lincs
+lincs_iter              = 1
+lincs_order             = 4
+; Pressure
+Pcoupl                  = Parrinello-Rahman
+tau-p                   = 2.0
+ref-p                   = 1.0
+pcoupltype              = isotropic
+compressibility         = 4.5e-5
+refcoord_scaling        = com
+; Temperature
+Tcoupl                  = nose-hoover
+tc_grps                 = system
+tau_t                   = 1
+ref_t                   = 300
+; Initial Velocities
+gen_vel                 = no
+
