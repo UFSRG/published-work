@@ -1,0 +1,31 @@
+;GROMACS
+;       Energy Minimization Script
+;
+;
+;define          = -DFLEXIBLE    ; pass to preprocessor
+;define          = -DMCHERRY1_POSRES ;mcherry
+;cpp             = usr/bin/cpp   ; location of preprocessor
+constraints     = none
+integrator      = steep            ; steepest decents minimum (else cg)
+nsteps          = 200000
+;
+;       Energy Minimizing Stuff
+;
+emtol           = 1000          ; convergence total force(kJ/mol/nm) is smaller than
+periodic-molecules      = yes
+emstep          = 0.001         ; initial step size (nm)
+ns_type         = grid
+rlist           = 1.2          ; cut-off distance for short range neighbors
+rcoulomb        = 1.2           ; distance for coulomb cut-off
+coulombtype     = PME           ; electrostatics (Particle Mesh Ewald method)
+fourierspacing  = 0.12          ; max grid spacing when using PPPM or PME
+cutoff-scheme   = verlet
+rvdw            = 1.2           ; VDW cut-off
+Tcoupl          = no            ; temperature coupling
+Pcoupl          = no            ; pressure coupling
+gen_vel         = no
+pbc             = xyz
+;freezegrps     = RUT
+;freezedim      = Y Y Y
+;energygrps     = RUT
+;energygrp-excl  = RUT RUT
