@@ -1,7 +1,7 @@
 # Grotthuss Contribution in Anion Exchange Membranes: Insight from Classical Molecular Dynamics Simulations
 
 This repository contains a **modified version of REACTER** to use with LAMMPS, developed as part of the study *"Grotthuss Contribution in Anion Exchange Membranes: Insight from Classical Molecular Dynamics Simulations"*.  
-The REACTER modifications track **initiators before proton hopping** and improve output for post-processing, enabling clear separation of **vehicular** vs **Grotthuss** contributions to mean squared displacement (MSD).
+The REACTER modifications track **initiators before proton hopping** and create an output file for post-processing, enabling clear separation of **vehicular** vs **Grotthuss** contributions to mean squared displacement (MSD).
 
 ---
 
@@ -128,7 +128,7 @@ this script tracks hydroxide identities across proton hops (including multiple h
 
 **Outputs**
 - CSV with columns: `Time`, `Total MSD`, `Vehicular MSD`, `Grotthuss MSD`, `Cross_correlation`
-- Optional: PNG plot (single y-axis)
+- Optional: PNG plot
 
 **Usage**
 ```bash
@@ -141,7 +141,6 @@ python MSD_decouple.py \
   --verbose
 ```
 
----
 ---
 
 ## 📄 Citation
