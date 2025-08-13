@@ -121,9 +121,27 @@ For parallel execution with REACTER, use **LAMMPS 2025 or later** to avoid MPI-r
 
 ## 📊 Post-Processing
 
-The modified REACTER will provide an output which contains the atomID and coordinates of atoms intiating the reaction.
-A Python analysis script MSD_decouple.py will parse REACTER output and reads trajectory file to decouple the vehicular displacmeent and displacement due to proton hopping
+### Grotthuss MSD Decomposition Script (with dot-product cross-correlation)
 
+Given a LAMMPS trajectory (`.lammpstrj`) and a proton-hopping log (`out`/SLURM log),  
+this script tracks hydroxide identities across proton hops (including multiple hops within a single saved interval), and computes mean squared displacement (MSD) decomposed into **vehicular** and **Grotthuss** components, plus their cross-correlation computed as an average dot product of the *running* vehicular and Grotthuss displacement vectors.
+
+**Outputs**
+- CSV with columns: `Time`, `Total MSD`, `Vehicular MSD`, `Grotthuss MSD`, `Cross_correlation`
+- Optional: PNG plot (single y-axis)
+
+**Usage**
+```bash
+python MSD_decouple.py \
+  --traj AEM.lammpstrj \
+  --out slurm_out \
+  --hydroxide-type 3 \
+  --csv msd.csv \
+  --plot msd_plot.png \
+  --verbose
+```
+
+---
 ---
 
 ## 📄 Citation
