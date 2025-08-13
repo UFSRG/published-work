@@ -153,6 +153,8 @@ If you use this modified REACTER in your research, please cite:
 > *Grotthuss Contribution in Anion Exchange Membranes: Insight from Classical Molecular Dynamics Simulations*  
 > [Mohammed Al Otmi, Ping Lin , Amalakrishna Vemula, William Schertzer, Sean Wood, Jacob Gissinger, Coray Colina, Rampi Ramprasad, Ryan Lively, Janani Sampat; 2025, Journal/DOI – to be added upon publication]
 
+> * Molecular modeling of reactive systems with REACTER*
+>  [Jacob R. Gissinger, Benjamin D. Jensen, Kristopher E. Wise; 2025, [Journal/DOI – to be added upon publication](https://doi.org/10.1016/j.cpc.2024.109287)]
 ---
 
 ## 🤝 Contributing
