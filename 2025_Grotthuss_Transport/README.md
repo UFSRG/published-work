@@ -3,7 +3,7 @@
 This repository contains a **modified version of REACTER** to use with LAMMPS, developed as part of the study *"Grotthuss Contribution in Anion Exchange Membranes: Insight from Classical Molecular Dynamics Simulations"*.  
 The REACTER modifications track **initiators before proton hopping** and create an output file for post-processing, enabling clear separation of **vehicular** vs **Grotthuss** contributions to mean squared displacement (MSD).
 ---
-`fix_bond_react.cpp` and `MSD_decouple.py` will be uploaded here upon paper submission.
+`fix_bond_react.cpp` and `MSD_decouple.py` will be uploaded here after paper submission.
 ---
 
 ## 📌 Overview
