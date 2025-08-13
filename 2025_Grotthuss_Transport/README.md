@@ -38,7 +38,7 @@ cd lammps
 ### 2. Add the Modified REACTER Files
 
 - Navigate to the `src` directory inside the LAMMPS source.
-- Replace `fix_bond_react.cpp`  with the modified versions from this repository.
+- Replace `fix_bond_react.cpp`  with the modified versions from this repository. The file is located in src inside a REACTION folder.
 - Ensure the modified files are saved in the correct location before building.
 
 ---
