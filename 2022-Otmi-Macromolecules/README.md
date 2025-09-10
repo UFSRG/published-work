@@ -36,6 +36,9 @@ This repository contains input files, scripts, and equilibrated polymer structur
 - **msd.py**  
   Python script to calculate the mean squared displacement (MSD).
 
+- **Van_Hove.ipynb** 
+Implements the self-part of the Van Hove correlation function to analyze hydrogen dynamics by tracking the probability distribution of particle displacements over time, providing insight into localized vs. mobile behavior at different temperatures and timescales.
+
 ---
 
 ### Equilibrated Polymer Structures
