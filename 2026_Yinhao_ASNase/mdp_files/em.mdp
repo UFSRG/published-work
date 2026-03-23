@@ -1,0 +1,27 @@
+;GROMACS
+;       Energy Minimization Script (Step 1)
+;
+; Comments from 
+constraints     = none             ; controls the bonds that will become rigid
+integrator      = steep            ; steepest decents minimum (else cg)
+nsteps          = 200000           ; steps to minimize
+;
+;       Energy Minimizing Stuff
+;
+emtol           = 1000          ; convergence total force(kJ/mol/nm) is smaller than
+periodic-molecules      = yes   ; coupled through PBC, molecules are not made whole
+emstep          = 0.001         ; initial step size (nm)
+rlist           = 1.2           ; cut-off distance for short range neighbors
+rcoulomb        = 1.2           ; distance for coulomb cut-off
+coulombtype     = PME           ; electrostatics (Particle Mesh Ewald method)
+fourierspacing  = 0.12          ; max grid spacing when using PPPM or PME
+cutoff-scheme   = verlet
+vdw-type        = Cut-off
+vdw-modifier    = force-switch  ; CHARMM specific
+DispCorr        = no            ; CHARMM specific
+rvdw            = 1.2           ; VDW cut-off
+rvdw-switch     = 1.0 
+Tcoupl          = no            ; temperature coupling
+Pcoupl          = no            ; pressure coupling
+gen_vel         = no
+pbc             = xyz
